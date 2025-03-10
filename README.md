@@ -1,11 +1,11 @@
 # If you are overly "sensitive" or easily offended, skip forward to What's here?  
   
-Built-in RNG's generally suck. additionally, in it common to seem them improperly used.  
-People come along and "improve" them, but the documentation is typically obtuse and or abstract that one who merely wishes to implement random generation in their code quickly comes to the conclusion  
-that given the choice between   
+Built-in RNG's generally suck. additionally, it is not uncommon to see them improperly used.  
+People come along and "improve" them. However, the documentation of improvements is often overly obtuse and or so abstract. For one who merely wishes (with some confidence) to implement random generation in their code will quickly  
+comes to a choice of two alternatives:       
 1. continuing one's attempt to make sense of the arcane blather    OR  
-2. having one's choice to continue being forcibly removed from one's consideration instead spending the time being bitch to a herd of drunk bull elephants who just escaped Pfizer where they each downed a crate -or more- of Viagra   
-Given the choice, one will take understandably take solace in knowing they'll never be constipated again.  
+2. having one's choice to continue being forcibly removed from one's consideration and instead spending the time being bitch to a herd of drunk bull elephants who just escaped Pfizer where they each downed a crate -or more- of Viagra   
+Given the two alternatives, one will take understandably take solace in knowing they'll never be constipated again.  
   
 __So, what am I doing writing documentation?__     
 Attempting to save Elephant Pride, of course.  
