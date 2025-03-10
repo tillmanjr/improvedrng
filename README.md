@@ -1,7 +1,7 @@
 # If you are overly "sensitive" or easily offended, skip forward to What's here?  
   
 Built-in RNG's generally suck. additionally, it is not uncommon to see them improperly used.  
-People come along and "improve" them. However, the documentation of improvements is often overly obtuse and or so abstract. For one who merely wishes (with some confidence) to implement random generation in their code will quickly  
+People come along and "improve" them. However, the documentation of improvements is often overly obtuse and or abstract. For one who merely wishes (with some confidence) to implement random generation in their code will quickly  
 comes to a choice of two alternatives:       
 1. continuing one's attempt to make sense of the arcane blather    OR  
 2. having one's choice to continue being forcibly removed from one's consideration and instead spending the time being bitch to a herd of drunk bull elephants who just escaped Pfizer where they each downed a crate -or more- of Viagra   
