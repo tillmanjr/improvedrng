@@ -30,39 +30,48 @@ So, if you scale you application by running three horizontal instances you shoul
 Amen!  
   
 ## Just to be clear here, this is all about DnD and similar so ...    
-### We'll base our intitial work on D20 rolls.  
+#### We'll base our intitial work on D20 rolls.  
   
 ## An easy start, or is it really that bad?:  
-
-Located in ./simplistic
   
-#### Using (RNG Engines):
-* Javascript's native Math.random  
+Install packages (`random-js`)   
+* `npm install`   or
+* `yarn`
+
+Open `./simplistic/index.js`  
+Change the values as desired  
+```
+const runParams = {
+    n: 1000,   // number of D20s to roll for each set of rolls (a bin)
+    y: 1000,   // number of D20 sets (bins) to roll 
+    include: { // available randomization engines, true = enable, false = disable
+        mersenneTwister: true,  // use Mersenne Twister randomization?
+        nativeMath: true,       // use JavaScripts native Math random function?
+        nodeCrypto: true,       // use nodejs's Crypt getRandomBytes?
+        vanilla: true           // use vanilla JavaScript Math.random?
+    }
+}
+```
+Save `./simplistic/index.js`  
+Run  `./simplistic/index.js`  
+_e.g._ `node ./simplistic/index.js`
+
+
+### Internal 
+#### RNG Engines:
 * random-js's Mersenne Twister (using Mersenne Primes to seed)  
 * random-js's Node.js's built-in Crypto library  
 * random-js's wrapping and improving Javascript's native Math.random  
+* Javascript's vanilla Math.random  
+
+`node-js` provides a consistent API for the following randomization engines used here:      
+* Mersenne Twister functionality  (`mersenneTwister`)
+* an improved version of JavaScript's native Math.random (`nativeMath`)
+* simple function access to nodejs's Crypto.getRandomBytes (`nodeCrypto`)
   
-#### For Each of the above   
-An instance of the RNG engine is created then passed to a common `run` function  
-_e.g.  _   
-```
-const Random = require("random-js").Random;
-const {MersenneTwister19937} = require("random-js")
-const {run} = require('./simplistic')
 
-const {
-    n,
-    y
-} = require('./runConsts');
-
-const random = new Random(MersenneTwister19937.autoSeed());
-
-const title = 'Mersenne Twister 19937 with random-js'
-run(random, title, n, y);
-```
-
-Using the RNG engine the `run` function does the following:    
-1. Run `n` D20 rolls ...random.integer(1, 20)     
+For each enabled RNG engine:    
+1. Run `n` D20 rolls `<engine>.random.integer(1, 20)`     
 2. Bin the roll totals by die face (1,2,3...20)  
 3. Repeat the preceding `y` times accumulating the binned results  
 4. Print the results  
@@ -77,7 +86,7 @@ _If perfectly even distribution then values would each be: `(n * n / 20)`_
   
 ### and results  
 Vanilla Javascript's Math.random()
-`./simplistic/vanilla.js`  
+`./simplistic/randomFunctions/vanilla.js`  
 ```
 Vanilla JS Math.random()
 Roll 1000 sets of 1000 D20
@@ -108,7 +117,7 @@ Face	Count
 ```
 
 Using the random-js implementation of a Mersenne Twister
-`./simplistic/mt.js`  
+`./simplistic/randomFunctions/mt.js`  
 ```
 Mersenne Twister 19937 with random-js
 Roll 1000 sets of 1000 D20
@@ -140,7 +149,7 @@ Face	Count
 
 
 Using the random-js wrapper engine of NodeJS's native crypto library  
-`./simplistic/nodeCrypto.js`  
+`./simplistic/randomFunctions/nodeCrypto.js`  
 ```
 Node Crypto RNG with random-js
 Roll 1000 sets of 1000 D20
@@ -171,7 +180,7 @@ Face	Count
 ```
   
 Using the random-js wrapper engine of Javascript's Math.random function which includes improvements   
-`./simplistic/nativeMath.js`  
+`./simplistic/randomFunctions/nativeMath.js`  
 ```
 Native Math.random with random-js
 Roll 1000 sets of 1000 D20
